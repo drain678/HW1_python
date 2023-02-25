@@ -4,7 +4,7 @@ z, v, c = int(), int(), int()
 # первым этапом надо понять какие разряды присутствуют в данном числе и узнать их значение
 if x // 100 > 0:
     z = x // 100
-if x % 100 // 10 > 0:
+if (x % 100) // 10 > 0:
     v = x % 100 // 10
 if 0 < x % 100 % 10 < 10:
     c = x % 100 % 10
@@ -24,10 +24,10 @@ if 5 <= v < 9:
     desyatok = (fifty + (v - 5) * ten)
 elif v == 9:
     desyatok = ten + hundred
-elif v == 1:
-    desyatok = ten
-elif 1 < v < 5:
-    desyatok = (5 - v) * ten + fifty
+elif v == 4:
+    desyatok = ten + fifty
+elif 1 <= v <= 3:
+    desyatok = v * ten
 # затем идет перевод единицы из арабской системы счисления в римскую,
 # перевод практически аналогичный, что и в десятке
 # также введем переменную, чтоб записать результат
@@ -36,10 +36,10 @@ if 5 <= c < 9:
     edinica = (five + (c - 5) * one)
 elif c == 9:
     edinica = one + ten
-elif c == 1:
-    edinica = one
-elif 1 < c < 5:
-    edinica = (5 - c) * one + five
+elif c == 4:
+    edinica = one + five
+elif 1 <= c <= 3:
+    edinica = c * one
 # остается понять была ли сотня в разряде, и если да,
 # то вывести ответ вместе с ней, иначе - без нее
 if z:

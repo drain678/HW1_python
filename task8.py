@@ -4,17 +4,19 @@ if Petya_var == 1:
     Petya_Vanya_num_var = Petya_row * 2 - 1
 else:
     Petya_Vanya_num_var = Petya_row * 2
-if Petya_Vanya_num_var <= varints:
+
+
+if Petya_Vanya_num_var < varints:
     t = students - varints
 else:
+    t = (students - Petya_Vanya_num_var) // varints + varints
     Petya_Vanya_num_var = Petya_Vanya_num_var % varints
-    t = students - varints * 2
 #u = varints - Petya_Vanya_num_var
 #t = students - varints - u
 
 if t >= Petya_Vanya_num_var:
     if varints % 2 == 0 and varints >= Petya_Vanya_num_var:
-        Vanya_row = Petya_row + ((varints - Petya_Vanya_num_var) // 2) + 1
+        Vanya_row = Petya_row + (Petya_Vanya_num_var // 2) + 1
         Vanya_var = Petya_var
         print(Vanya_row, Vanya_var)
     elif (varints % 2 == 0 and Petya_Vanya_num_var % 2 != 0) or (varints % 2 == 0 and Petya_Vanya_num_var % 2 == 0):
@@ -22,11 +24,17 @@ if t >= Petya_Vanya_num_var:
         Vanya_var = Petya_var
         print(Vanya_row, Vanya_var)
     elif varints % 2 != 0 and Petya_Vanya_num_var % 2 != 0:
-        Vanya_var = Petya_var - 1
+        if Petya_var == 1:
+            Vanya_var = Petya_var + 1
+        else:
+            Vanya_var = 1
         Vanya_row = Petya_row + ((varints - Petya_Vanya_num_var) // 2) + 1
         print(Vanya_row, Vanya_var)
     elif varints % 2 != 0 and Petya_Vanya_num_var % 2 == 0:
-        Vanya_var = Petya_var - 1
+        if Petya_var == 1:
+            Vanya_var = Petya_var + 1
+        else:
+            Vanya_var = 1
         Vanya_row = Petya_row + ((varints - Petya_Vanya_num_var) // 2) + 1
         print(Vanya_row, Vanya_var)
     else:
